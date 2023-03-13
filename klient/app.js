@@ -5,7 +5,7 @@ function zapisz(){
     const div_kandydat1 = document.createElement("div")
     div_kandydat1.classList.add("uzytkownicy")
     div_kandydat1.setAttribute("id", "uzytkownik1")
-    div_kandydat1.innerHTML = "Kandydat Nr.1"
+    div_kandydat1.innerHTML = "Kandydatka Nr.1"
     const div1_zdj = document.createElement("img")
     div1_zdj.setAttribute("src","https://www.ubutik.pl/img/cms/kiedy%20okulary%20dla%20nauczyciela.jpg" )
     div1_zdj.classList.add("zdjecia")
