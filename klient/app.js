@@ -5,6 +5,8 @@ function zacznij(){
     div_kandydat1.classList.add("uzytkownicy")
     div_kandydat1.setAttribute("id", "uzytkownik1")
     div_kandydat1.innerHTML = "Kandydat Nr.1"
+    const div1_zdj = document.createElement("img")
+    div1_zdj.setAttribute("src", )
 
     const div_kandydat2 = document.createElement("div")
     div_kandydat2.classList.add("uzytkownicy")
