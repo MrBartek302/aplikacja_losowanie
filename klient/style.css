@@ -33,6 +33,10 @@ body{
     border-right: solid white 4px;
     }
 
+#przycisk{
+    width: 110px;
+}
+
 #goralewo{
     display: flex;
     align-items: center;
