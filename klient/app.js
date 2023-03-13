@@ -1,6 +1,7 @@
-function zacznij(){
+function zapisz(){
     document.getElementById("prawogra").innerHTML = ""
-
+    document.getElementById("pesel").style.backgroundColor = "green"
+    
     const div_kandydat1 = document.createElement("div")
     div_kandydat1.classList.add("uzytkownicy")
     div_kandydat1.setAttribute("id", "uzytkownik1")
@@ -11,6 +12,7 @@ function zacznij(){
     div_kandydat1.appendChild(div1_zdj)
     const button1 = document.createElement("button")
     button1.setAttribute("onclick", "wybierz(1)")
+    button1.setAttribute("id", "przycisk1")
     button1.classList.add("wybieranie")
     button1.innerHTML = "Wybierz!"
     div_kandydat1.appendChild(button1)
@@ -25,6 +27,7 @@ function zacznij(){
     div_kandydat2.appendChild(div2_zdj)
     const button2 = document.createElement("button")
     button2.setAttribute("onclick", "wybierz(2)")
+    button2.setAttribute("id", "przycisk2")
     button2.classList.add("wybieranie")
     button2.innerHTML = "Wybierz!"
     div_kandydat2.appendChild(button2)
@@ -39,6 +42,7 @@ function zacznij(){
     div_kandydat3.appendChild(div3_zdj)
     const button3 = document.createElement("button")
     button3.setAttribute("onclick", "wybierz(3)")
+    button3.setAttribute("id", "przycisk3")
     button3.classList.add("wybieranie")
     button3.innerHTML = "Wybierz!"
     div_kandydat3.appendChild(button3)
@@ -46,9 +50,6 @@ function zacznij(){
     document.getElementById("prawogra").appendChild(div_kandydat1)
     document.getElementById("prawogra").appendChild(div_kandydat2)
     document.getElementById("prawogra").appendChild(div_kandydat3)
-}
-
-function zapisz(){
     const pesel = document.getElementById("pesel").value
 
     const url = `${baseurl}/add/${pesel}`
