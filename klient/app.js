@@ -10,7 +10,7 @@ function zacznij(){
     div1_zdj.classList.add("zdjecia")
     div_kandydat1.appendChild(div1_zdj)
     const button1 = document.createElement("button")
-    button1.setAttribute("onclick", "wybierz")
+    button1.setAttribute("onclick", "wybierz(1)")
     button1.classList.add("wybieranie")
     button1.innerHTML = "Wybierz!"
     div_kandydat1.appendChild(button1)
@@ -24,7 +24,7 @@ function zacznij(){
     div2_zdj.classList.add("zdjecia")
     div_kandydat2.appendChild(div2_zdj)
     const button2 = document.createElement("button")
-    button2.setAttribute("onclick", "wybierz")
+    button2.setAttribute("onclick", "wybierz(2)")
     button2.classList.add("wybieranie")
     button2.innerHTML = "Wybierz!"
     div_kandydat2.appendChild(button2)
@@ -38,7 +38,7 @@ function zacznij(){
     div3_zdj.classList.add("zdjecia")
     div_kandydat3.appendChild(div3_zdj)
     const button3 = document.createElement("button")
-    button3.setAttribute("onclick", "wybierz")
+    button3.setAttribute("onclick", "wybierz(3)")
     button3.classList.add("wybieranie")
     button3.innerHTML = "Wybierz!"
     div_kandydat3.appendChild(button3)
