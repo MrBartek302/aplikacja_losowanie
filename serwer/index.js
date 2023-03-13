@@ -34,11 +34,10 @@ app.get("/pobierz", (req,res)=>{
 //SELECT pobiera a INSERT dodaje
 
 //wysyłamy do bazy danych
-app.get("/add/:wylosowany/:pesel", (req,res)=>{
+app.get("/add/:pesel", (req,res)=>{
     const pesel = req.params.pesel
-    const wylosowany = req.params.wylosowany
     //tworzymy zapytanie
-    const sql = `INSERT INTO losowanie (wylosowany,pesel) VALUES ('${wylosowany}', '${pesel}')`
+    const sql = `INSERT INTO losowanie (pesel_losujacego) VALUES ('${pesel}')`
     con.query(sql, function(err, result, fields){
         if(err) console.log(err)
         else res.send("Dodano record")

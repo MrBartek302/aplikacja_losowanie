@@ -47,3 +47,11 @@ function zacznij(){
     document.getElementById("prawogra").appendChild(div_kandydat2)
     document.getElementById("prawogra").appendChild(div_kandydat3)
 }
+
+function zapisz(){
+    const pesel = document.getElementById("pesel").value
+
+    const url = `${baseurl}/add/${pesel}`
+
+    fetch(url)
+}
