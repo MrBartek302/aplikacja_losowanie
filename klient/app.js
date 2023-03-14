@@ -1,7 +1,27 @@
 function zagraj(){
     document.getElementById("prawogra").innerHTML = ""
+    document.getElementById("interfejs").innerHTML =""
+    document.getElementById("dollewo").innerHTML = ""
     //document.getElementById("pesel").style.backgroundColor = "green"
 
+    const napis1 = document.createElement("h3")
+    napis1.innerHTML = "Wpisz swój Pesel"
+    document.getElementById("dollewo").appendChild(napis1)
+    
+    const inputpesel = document.createElement("input")
+    inputpesel.setAttribute("id", "pesel")
+    inputpesel.setAttribute("type", "text")
+    inputpesel.setAttribute("onchange", "zapisz()")
+    document.getElementById("dollewo").appendChild(inputpesel)
+
+    const napis2 = document.createElement("h3")
+    napis2.innerHTML = "Kliknij przycisk poniżej gdy już wpiszesz Pesel i wybierzesz kandydata aby wysłać los"
+    document.getElementById("dollewo").appendChild(napis2)
+
+    const buttonwyslij = document.createElement("button")
+    buttonwyslij.setAttribute("id", "przycisk")
+    buttonwyslij.setAttribute("onclick", "losuj()")
+    document.getElementById("dollewo").appendChild(buttonwyslij)
     
     const div_kandydat1 = document.createElement("div")
     div_kandydat1.classList.add("uzytkownicy")
@@ -67,7 +87,7 @@ function zagraj(){
     document.getElementById("interfejs").appendChild(napispesel)
 
     const napiskandydat= document.createElement("h2")
-    napiskandydat.innerHTML = "Wybrałeś kandydata: "
+    napiskandydat.innerHTML = "Twój wybór to: "
     napiskandydat.setAttribute("id", "napiskandydat11")
     document.getElementById("interfejs").appendChild(napiskandydat)
 
@@ -75,20 +95,18 @@ function zagraj(){
 
 
 let pesel;
-
 function zapisz(){
     pesel = document.getElementById("pesel").value;
-    console.log(pesel);
 }
-
+var wybrany = 0;
 function losuj(){
+   if(wybrany==0){
     const napispesel1 = document.getElementById("napispesel11");
     const napiskandydat1 = document.getElementById("napiskandydat11");
     
     const peseluzytkownik = pesel;
     const nazwakandy = document.getElementById("nazwakandydata").innerHTML;
 
-    console.log(peseluzytkownik);
     
     const url = `${baseurl}/add/${nazwakandy}/${peseluzytkownik}`;
 
@@ -96,15 +114,14 @@ function losuj(){
 
     napispesel1.innerHTML = "Twój Pesel to: "+peseluzytkownik;
     napiskandydat1.innerHTML = "Wybrałeś kandydata: "+nazwakandy;
+
+    wybrany = 1
+
+    console.log("Dodano los!!")
+}
 }
 
 function wybierz(nr){
     const nazwauzytkownika = document.getElementById("nazwa"+nr)
     nazwauzytkownika.setAttribute("id", "nazwakandydata")
-    console.log(nazwauzytkownika)
-}
-
-function sprawdzanie(){
-    const peselInput = document.getElementById('pesel');
-console.log(peselInput.getAttribute('value'));
 }
