@@ -1,11 +1,15 @@
-function zapisz(){
+function zagraj(){
     document.getElementById("prawogra").innerHTML = ""
-    document.getElementById("pesel").style.backgroundColor = "green"
+    //document.getElementById("pesel").style.backgroundColor = "green"
+
     
     const div_kandydat1 = document.createElement("div")
     div_kandydat1.classList.add("uzytkownicy")
     div_kandydat1.setAttribute("id", "uzytkownik1")
-    div_kandydat1.innerHTML = "Kandydatka Nr.1"
+    const nazwa1 = document.createElement("h1")
+    nazwa1.setAttribute("id", "nazwa1")
+    nazwa1.innerHTML = "Kandydatka Nr.1"
+    div_kandydat1.appendChild(nazwa1)
     const div1_zdj = document.createElement("img")
     div1_zdj.setAttribute("src","https://www.ubutik.pl/img/cms/kiedy%20okulary%20dla%20nauczyciela.jpg" )
     div1_zdj.classList.add("zdjecia")
@@ -20,7 +24,10 @@ function zapisz(){
     const div_kandydat2 = document.createElement("div")
     div_kandydat2.classList.add("uzytkownicy")
     div_kandydat2.setAttribute("id", "uzytkownik1")
-    div_kandydat2.innerHTML = "Kandydat Nr.2"
+    const nazwa2 = document.createElement("h1")
+    nazwa2.setAttribute("id", "nazwa2")
+    nazwa2.innerHTML = "Kandydat Nr.2"
+    div_kandydat2.appendChild(nazwa2)
     const div2_zdj = document.createElement("img")
     div2_zdj.setAttribute("src"," https://st.depositphotos.com/1637787/3445/i/600/depositphotos_34453787-stock-photo-businessman-portrait.jpg" )
     div2_zdj.classList.add("zdjecia")
@@ -35,7 +42,10 @@ function zapisz(){
     const div_kandydat3 = document.createElement("div")
     div_kandydat3.classList.add("uzytkownicy")
     div_kandydat3.setAttribute("id", "uzytkownik1")
-    div_kandydat3.innerHTML = "Kandydat Nr.3"
+    const nazwa3 = document.createElement("h1")
+    nazwa3.setAttribute("id", "nazwa3")
+    nazwa3.innerHTML = "Kandydat Nr.3"
+    div_kandydat3.appendChild(nazwa3)
     const div3_zdj = document.createElement("img")
     div3_zdj.setAttribute("src","https://st2.depositphotos.com/2501025/5654/i/450/depositphotos_56545139-stock-photo-password.jpg" )
     div3_zdj.classList.add("zdjecia")
@@ -50,9 +60,51 @@ function zapisz(){
     document.getElementById("prawogra").appendChild(div_kandydat1)
     document.getElementById("prawogra").appendChild(div_kandydat2)
     document.getElementById("prawogra").appendChild(div_kandydat3)
-    const pesel = document.getElementById("pesel").value
 
-    const url = `${baseurl}/add/${pesel}`
+    const napispesel= document.createElement("h2")
+    napispesel.innerHTML = "Twój Pesel to: "
+    napispesel.setAttribute("id", "napispesel11")
+    document.getElementById("interfejs").appendChild(napispesel)
 
-    fetch(url)
+    const napiskandydat= document.createElement("h2")
+    napiskandydat.innerHTML = "Wybrałeś kandydata: "
+    napiskandydat.setAttribute("id", "napiskandydat11")
+    document.getElementById("interfejs").appendChild(napiskandydat)
+
+}
+
+
+let pesel;
+
+function zapisz(){
+    pesel = document.getElementById("pesel").value;
+    console.log(pesel);
+}
+
+function losuj(){
+    const napispesel1 = document.getElementById("napispesel11");
+    const napiskandydat1 = document.getElementById("napiskandydat11");
+    
+    const peseluzytkownik = pesel;
+    const nazwakandy = document.getElementById("nazwakandydata").innerHTML;
+
+    console.log(peseluzytkownik);
+    
+    const url = `${baseurl}/add/${nazwakandy}/${peseluzytkownik}`;
+
+    fetch(url);
+
+    napispesel1.innerHTML = "Twój Pesel to: "+peseluzytkownik;
+    napiskandydat1.innerHTML = "Wybrałeś kandydata: "+nazwakandy;
+}
+
+function wybierz(nr){
+    const nazwauzytkownika = document.getElementById("nazwa"+nr)
+    nazwauzytkownika.setAttribute("id", "nazwakandydata")
+    console.log(nazwauzytkownika)
+}
+
+function sprawdzanie(){
+    const peselInput = document.getElementById('pesel');
+console.log(peselInput.getAttribute('value'));
 }
