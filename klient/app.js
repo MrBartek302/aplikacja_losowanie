@@ -25,14 +25,14 @@ function zagraj(){
     btnadmin.innerHTML = "Strona admina!";
     btnadmin.onclick = function() {
     // Przekierowanie użytkownika na inną stronę
-    window.location.href = "http://localhost:3000/admin";
+    window.location.href = "/klient/admin/index.html";
     };
     document.getElementById("goralewo").appendChild(btnadmin)
 
     const napis1 = document.createElement("h3")
     napis1.innerHTML = "Wpisz swój Pesel"
     document.getElementById("dollewo").appendChild(napis1)
-    
+
     const inputpesel = document.createElement("input")
     inputpesel.setAttribute("id", "pesel")
     inputpesel.setAttribute("type", "text")

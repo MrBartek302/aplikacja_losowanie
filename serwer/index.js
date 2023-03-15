@@ -21,11 +21,6 @@ con.connect(function(err){
 })
 
 
-app.get('/admin', (req, res) => {
-    res.sendFile(__dirname + '/public/admin/Strona_Admin.html');
-  });
-
-
 app.get("/pobierz_nazwe_kandydata", (req,res)=>{
     //pobiera nam z naszej bazy danych to co stworzyliśmy
     const sql = "SELECT * FROM kandydaci"
