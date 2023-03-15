@@ -23,10 +23,10 @@ function zagraj(){
     btnadmin.id = "adminbtn";
     btnadmin.className = "myButtonClass";
     btnadmin.innerHTML = "Strona admina!";
-    btnadmin.onclick = function() {
-    // Przekierowanie użytkownika na inną stronę
-    window.location.href = "/klient/admin/index.html";
-    };
+  //  btnadmin.onclick = function() {
+  //  // Przekierowanie użytkownika na inną stronę
+  //  window.location.href = "/klient/admin/index.html";
+  //  };
     document.getElementById("goralewo").appendChild(btnadmin)
 
     const napis1 = document.createElement("h3")
