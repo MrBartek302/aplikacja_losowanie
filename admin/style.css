@@ -1,0 +1,21 @@
+body{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100vh;
+    grid-template-areas: "gra";
+   
+}
+
+#gra{
+    grid-area: gra;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#przycisktest{
+    width: 200px;
+    height: 40px;
+    background-color: rebeccapurple;
+}

@@ -7,9 +7,27 @@ async function getkandydat(){
 getkandydat()
 function zagraj(){
     
-    
-    document.getElementById("interfejs").innerHTML =""
-    document.getElementById("dollewo").innerHTML = ""
+    document.getElementById("prawogra").innerHTML = "";
+    document.getElementById("goralewo").innerHTML= "";
+    document.getElementById("interfejs").innerHTML = "";
+    document.getElementById("dollewo").innerHTML = "";
+
+
+    const zagrajbutton = document.createElement("button")
+    zagrajbutton.setAttribute("onclick", "zagraj()")
+    zagrajbutton.setAttribute("id", "Zacznij")
+    document.getElementById("goralewo").appendChild(zagrajbutton)
+
+
+    const btnadmin = document.createElement("button");
+    btnadmin.id = "adminbtn";
+    btnadmin.className = "myButtonClass";
+    btnadmin.innerHTML = "Strona admina!";
+    btnadmin.onclick = function() {
+    // Przekierowanie użytkownika na inną stronę
+    window.location.href = "http://localhost:3000/admin";
+    };
+    document.getElementById("goralewo").appendChild(btnadmin)
 
     const napis1 = document.createElement("h3")
     napis1.innerHTML = "Wpisz swój Pesel"
@@ -42,7 +60,7 @@ function zagraj(){
     div_zdj.classList.add("zdjecia")
     div_kandydat.appendChild(div_zdj)
     const button = document.createElement("button")
-    button.setAttribute("onclick", `wybierz(${(i+1)})`)
+    button.setAttribute("onclick", `wybierz(${i})`)
     button.classList.add("wybieranie")
     button.innerHTML = "Wybierz!"
     div_kandydat.appendChild(button)
@@ -87,8 +105,10 @@ getkandydat()
 }
 function wybierz(nr){
     const nazwauzytkownika = document.getElementsByClassName("nazwa1");
-    nazwauzytkownika[i].setAttribute("id", "nazwakandydata")
-    document.getElementById("napiskandydat11").innerHTML = "Twój wybór to: "+json[nr-1].nazwa_kandydata
-
-getkandydat()
+    if (nazwauzytkownika[nr]) {
+        nazwauzytkownika[nr].setAttribute("id", "nazwakandydata")
+        document.getElementById("napiskandydat11").innerHTML = "Twój wybór to: "+json[nr].nazwa_kandydata
+    }
+    getkandydat()
 }
+

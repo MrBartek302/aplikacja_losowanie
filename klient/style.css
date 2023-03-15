@@ -48,6 +48,13 @@ body{
     
 }    
 
+#adminbtn{
+    width: 70px;
+    height: 20px;
+    border: solid white 2px;
+    border-radius: 50px;
+}
+
 #Zacznij{
     background-color: #8000ff;
     width: 215px;
