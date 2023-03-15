@@ -1,8 +1,20 @@
+var json = []
+
+async function getkandydat(){
+    const data = await fetch(baseurl+"/pobierz_nazwe_kandydata")
+    json = await data.json()
+    console.log(json)
+    
+}
+
 function zagraj(){
+    getkandydat()
     document.getElementById("prawogra").innerHTML = ""
     document.getElementById("interfejs").innerHTML =""
     document.getElementById("dollewo").innerHTML = ""
-    //document.getElementById("pesel").style.backgroundColor = "green"
+
+
+    for(var i =0; i<= json.length - 1;i++){
 
     const napis1 = document.createElement("h3")
     napis1.innerHTML = "Wpisz swój Pesel"
@@ -28,7 +40,7 @@ function zagraj(){
     div_kandydat1.setAttribute("id", "uzytkownik1")
     const nazwa1 = document.createElement("h1")
     nazwa1.setAttribute("id", "nazwa1")
-    nazwa1.innerHTML = "Kandydatka Nr.1"
+    nazwa1.innerHTML = json[i].nazwa_kandydata
     div_kandydat1.appendChild(nazwa1)
     const div1_zdj = document.createElement("img")
     div1_zdj.setAttribute("src","https://www.ubutik.pl/img/cms/kiedy%20okulary%20dla%20nauczyciela.jpg" )
@@ -46,7 +58,7 @@ function zagraj(){
     div_kandydat2.setAttribute("id", "uzytkownik1")
     const nazwa2 = document.createElement("h1")
     nazwa2.setAttribute("id", "nazwa2")
-    nazwa2.innerHTML = "Kandydat Nr.2"
+    nazwa2.innerHTML = json[i].nazwa_kandydata
     div_kandydat2.appendChild(nazwa2)
     const div2_zdj = document.createElement("img")
     div2_zdj.setAttribute("src"," https://st.depositphotos.com/1637787/3445/i/600/depositphotos_34453787-stock-photo-businessman-portrait.jpg" )
@@ -64,7 +76,7 @@ function zagraj(){
     div_kandydat3.setAttribute("id", "uzytkownik1")
     const nazwa3 = document.createElement("h1")
     nazwa3.setAttribute("id", "nazwa3")
-    nazwa3.innerHTML = "Kandydat Nr.3"
+    nazwa3.innerHTML = json[i].nazwa_kandydata
     div_kandydat3.appendChild(nazwa3)
     const div3_zdj = document.createElement("img")
     div3_zdj.setAttribute("src","https://st2.depositphotos.com/2501025/5654/i/450/depositphotos_56545139-stock-photo-password.jpg" )
@@ -90,7 +102,8 @@ function zagraj(){
     napiskandydat.innerHTML = "Twój wybór to: "
     napiskandydat.setAttribute("id", "napiskandydat11")
     document.getElementById("interfejs").appendChild(napiskandydat)
-
+    }
+    
 }
 
 
@@ -119,9 +132,12 @@ function losuj(){
 
     console.log("Dodano los!!")
 }
+getkandydat()
 }
 
 function wybierz(nr){
     const nazwauzytkownika = document.getElementById("nazwa"+nr)
     nazwauzytkownika.setAttribute("id", "nazwakandydata")
+
+getkandydat()
 }

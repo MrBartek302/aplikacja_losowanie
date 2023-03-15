@@ -12,14 +12,22 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "losowanie"
+    database: "losowanie1"
 })
 //potwierdzenie połączenia
 con.connect(function(err){
     if(err) console.log(err)
     else console.log("Połączono z bazą danych")    
 })
-
+app.get("/pobierz_nazwe_kandydata", (req,res)=>{
+    //pobiera nam z naszej bazy danych to co stworzyliśmy
+    const sql = "SELECT * FROM kandydaci"
+    //tworzymy zapytanie
+    con.query(sql, function(err, result, fields){
+        if(err) console.log(err)
+        else res.send(result)
+    })
+})
 //pobieramy z bazy danych
 app.get("/pobierz", (req,res)=>{
     //pobiera nam z naszej bazy danych to co stworzyliśmy
