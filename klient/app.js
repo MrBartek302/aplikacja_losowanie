@@ -16,25 +16,24 @@ function zagraj(){
     const zagrajbutton = document.createElement("button")
     zagrajbutton.setAttribute("onclick", "zagraj()")
     zagrajbutton.setAttribute("id", "Zacznij")
+    zagrajbutton.innerHTML = "Zagraj!"
     document.getElementById("goralewo").appendChild(zagrajbutton)
 
 
     const btnadmin = document.createElement("button");
-    btnadmin.id = "adminbtn";
-    btnadmin.className = "myButtonClass";
+    btnadmin.setAttribute("id", "adminbtn")
     btnadmin.innerHTML = "Strona admina!";
-  //  btnadmin.onclick = function() {
-  //  // Przekierowanie użytkownika na inną stronę
-  //  window.location.href = "/klient/admin/index.html";
-  //  };
+    btnadmin.setAttribute("onclick", "wyslijadmin()") 
     document.getElementById("goralewo").appendChild(btnadmin)
 
     const napis1 = document.createElement("h3")
     napis1.innerHTML = "Wpisz swój Pesel"
+    napis1.setAttribute("id", "napisnadpeselem")
     document.getElementById("dollewo").appendChild(napis1)
 
     const inputpesel = document.createElement("input")
     inputpesel.setAttribute("id", "pesel")
+    inputpesel.setAttribute("maxlength", "11")
     inputpesel.setAttribute("type", "text")
     inputpesel.setAttribute("onchange", "zapisz()")
     document.getElementById("dollewo").appendChild(inputpesel)
@@ -81,33 +80,73 @@ function zagraj(){
     
 }
 
+function wyslijadmin(){
+     // Przekierowanie użytkownika na inną stronę
+     window.location.href = "admin/index.html";
+}
+
 
 let pesel;
+let peselpoprawny;
+var wybrane1=0
 function zapisz(){
     pesel = document.getElementById("pesel").value;
-    document.getElementById("napispesel11").innerHTML = "Twój Pesel to: "+pesel
+
+    if(pesel.length<11){
+        document.getElementById("napisnadpeselem").innerHTML = "Za mało znaków w Peselu!! Wpisz poprawny Pesel."
+        document.getElementById("pesel").style.backgroundColor = "red"
+    }
+
+    //else if(pesel==undefined){
+    //    document.getElementById("napisnadpeselem").innerHTML = "Nic nie wpisałeś!! Wpisz poprawny Pesel."
+    //}
+
+    else{
+        if(wybrane1==0){
+        peselpoprawny=document.getElementById("pesel").value
+        document.getElementById("napispesel11").innerHTML = "Twój Pesel to: "+peselpoprawny
+        document.getElementById("napisnadpeselem").innerHTML=""
+        document.getElementById("napisnadpeselem").innerHTML="Pesel poprawnie zapisany!"
+        document.getElementById("pesel").style.backgroundColor = "green"
+       
+        wybrane1=1
+       }
+    
+      }
 }
 var wybrany = 0;
 var nazwakandy;
 function losuj(){
    if(wybrany==0){
-    const peseluzytkownik = pesel;
+   
+    if(peselpoprawny!=undefined){
+        const peseluzytkownik = peselpoprawny;
     const nazwakandy = document.getElementById("nazwakandydata").innerHTML;
     const url = `${baseurl}/add/${nazwakandy}/${peseluzytkownik}`;
 
     fetch(url);
-
-    wybrany = 1
-
+    wybrany = 1   
+    
     console.log("Dodano los!!")
 }
+
+    else{
+        console.log(peselpoprawny)
+        alert("Coś nie tak z Peselem, sprawdź komunikat nad miejscem do wpisania Peselu")
+    }
+}
+
 getkandydat()
 }
+var wybrane = 0
 function wybierz(nr){
+    if(wybrane==0){
     const nazwauzytkownika = document.getElementsByClassName("nazwa1");
-    if (nazwauzytkownika[nr]) {
+    
         nazwauzytkownika[nr].setAttribute("id", "nazwakandydata")
         document.getElementById("napiskandydat11").innerHTML = "Twój wybór to: "+json[nr].nazwa_kandydata
+       
+        wybrane=1
     }
     getkandydat()
 }
