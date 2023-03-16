@@ -47,7 +47,7 @@ function zagraj(){
     buttonwyslij.setAttribute("onclick", "losuj()")
     document.getElementById("dollewo").appendChild(buttonwyslij)
     
-    for(var i =0; i<= json.length - 1;i++){
+    for(var i=0; i<= json.length - 1;i++){
     const div_kandydat = document.createElement("div")
     div_kandydat.classList.add("uzytkownicy")
     const nazwa = document.createElement("h1")
@@ -64,9 +64,9 @@ function zagraj(){
     button.innerHTML = "Wybierz!"
     div_kandydat.appendChild(button)
 
-    
     document.getElementById("prawogra").appendChild(div_kandydat)
     }
+    
     const napispesel= document.createElement("h2")
     napispesel.innerHTML = "Twój Pesel to: "
     napispesel.setAttribute("id", "napispesel11")
@@ -103,6 +103,7 @@ function zapisz(){
 
     else{
         if(wybrane1==0){
+        
         peselpoprawny=document.getElementById("pesel").value
         document.getElementById("napispesel11").innerHTML = "Twój Pesel to: "+peselpoprawny
         document.getElementById("napisnadpeselem").innerHTML=""
@@ -120,7 +121,7 @@ function losuj(){
    if(wybrany==0){
    
     if(peselpoprawny!=undefined){
-        const peseluzytkownik = peselpoprawny;
+    const peseluzytkownik = peselpoprawny;
     const nazwakandy = document.getElementById("nazwakandydata").innerHTML;
     const url = `${baseurl}/add/${nazwakandy}/${peseluzytkownik}`;
 
@@ -132,7 +133,7 @@ function losuj(){
 
     else{
         console.log(peselpoprawny)
-        alert("Coś nie tak z Peselem, sprawdź komunikat nad miejscem do wpisania Peselu")
+        alert("Coś jest nie tak z Peselem, ponów próbę i upewnij się że wprowadziłeś wszystko jak należy.")
     }
 }
 
