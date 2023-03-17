@@ -8,7 +8,8 @@ getkandydat()
 function zagraj(){
     
     document.getElementById("prawogra").innerHTML = "";
-    document.getElementById("goralewo").innerHTML= "";
+    document.getElementById("goragoralewo").innerHTML= "";
+    document.getElementById("sredniadmin").innerHTML="";
     document.getElementById("interfejs").innerHTML = "";
     document.getElementById("dollewo").innerHTML = "";
 
@@ -17,14 +18,14 @@ function zagraj(){
     zagrajbutton.setAttribute("onclick", "zagraj()")
     zagrajbutton.setAttribute("id", "Zacznij")
     zagrajbutton.innerHTML = "Zagraj!"
-    document.getElementById("goralewo").appendChild(zagrajbutton)
+    document.getElementById("goragoralewo").appendChild(zagrajbutton)
 
 
     const btnadmin = document.createElement("button");
     btnadmin.setAttribute("id", "adminbtn")
     btnadmin.innerHTML = "Strona admina!";
     btnadmin.setAttribute("onclick", "wyslijadmin()") 
-    document.getElementById("goralewo").appendChild(btnadmin)
+    document.getElementById("sredniadmin").appendChild(btnadmin)
 
     const napis1 = document.createElement("h3")
     napis1.innerHTML = "Wpisz swój Pesel"
@@ -79,12 +80,58 @@ function zagraj(){
     
     
 }
-
+var k=0;
 function wyslijadmin(){
-     // Przekierowanie użytkownika na inną stronę
-     window.location.href = "admin/index.html";
+if(k==0){
+    const div = document.createElement("div")
+    div.setAttribute("id", "divrozciag")
+    const login = document.createElement("input")
+    const haslo = document.createElement("input")
+    const btnwyslijadmin = document.createElement("button")
+    btnwyslijadmin.setAttribute("onclick", "przekierujadmin()")
+    btnwyslijadmin.setAttribute("id", "btnwyslij")
+    btnwyslijadmin.innerHTML ="Login"
+    login.setAttribute("id", "nazwalogin")
+    haslo.setAttribute("id", "haselko")
+    haslo.setAttribute("type", "password")
+
+    document.getElementById("sredniadmin").style.width = "225px"
+    document.getElementById("sredniadmin").style.height = "100px"
+
+    login.placeholder ="Nazwa"
+    haslo.placeholder ="Hasło"
+
+    setTimeout(function(){
+        div.appendChild(login)
+        div.appendChild(haslo)
+        div.appendChild(btnwyslijadmin)
+    },270)
+    document.getElementById("sredniadmin").appendChild(div)
+k=1
 }
 
+else{
+    document.getElementById("divrozciag").remove()
+    document.getElementById("sredniadmin").style.width ="165px"
+    document.getElementById("sredniadmin").style.height ="55px"
+    k=0 
+}
+
+}
+
+function przekierujadmin(){
+    const name = document.getElementById("nazwalogin").value
+    const pass = document.getElementById("haselko").value
+    
+    if(name=="Bartek.S" && pass=="Jestem najlepszy"){
+     // Przekierowanie użytkownika na inną stronę
+     window.location.href = "admin/index.html";
+    }
+    else{
+        alert("Zły login bądź złe hasło! Spróbuj ponownie.")
+    }
+    
+    }
 
 let pesel;
 let peselpoprawny;

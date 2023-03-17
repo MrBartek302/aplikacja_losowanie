@@ -40,17 +40,66 @@ body{
 
 
 #goralewo{
+    grid-area: goralewo;
+    background-color:#495057;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh 20vh;
+    grid-template-areas: 
+    "goragoralewo"
+    "dolgoralewo";
+    border-bottom: solid white 3px;
+
+}    
+
+
+#goragoralewo{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content:center;
+    text-align: center;
     flex-direction: column;
-    gap: 10px;
+}
+
+#dolgoralewo{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    text-align: center;
+    flex-direction: column;
+}
+
+#calyadmin{
+    align-items: center;
+    justify-content: center;
     
-}    
+    height: 55px;
+    width: 195px;
+}
+
+#sredniadmin{
+    height: 55px;
+    width: 165px;
+}
+
+#divrozciag{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    text-align: center;
+    flex-direction: column;
+}
+
+#nazwalogin::placeholder{
+text-align: center;
+}
+#haselko::placeholder{
+text-align: center;
+}
 
 #Zacznij{
     background-color: #8000ff;
-    width: 215px;
+    width: 245px;
     height: 50px;
     font-size: 25px;
     border: solid white 3px;
@@ -60,7 +109,7 @@ body{
 
 #adminbtn{
     height: 35px;
-    width: 145px;
+    width: 115px;
     border: solid white 3px;
     background-color: #cc00ff;
     border-radius: 50px;
