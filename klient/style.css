@@ -69,13 +69,6 @@ body{
     flex-direction: column;
 }
 
-#calyadmin{
-    align-items: center;
-    justify-content: center;
-    height: 35px;
-    width: 195px;
-    
-}
 
 #sredniadmin{
     height: 35px;
