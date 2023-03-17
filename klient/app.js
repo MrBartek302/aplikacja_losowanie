@@ -95,7 +95,7 @@ if(k==0){
     haslo.setAttribute("id", "haselko")
     haslo.setAttribute("type", "password")
 
-    document.getElementById("sredniadmin").style.width = "225px"
+    document.getElementById("sredniadmin").style.width = "170px"
     document.getElementById("sredniadmin").style.height = "100px"
 
     login.placeholder ="Nazwa"

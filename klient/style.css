@@ -72,7 +72,6 @@ body{
 #calyadmin{
     align-items: center;
     justify-content: center;
-    
     height: 55px;
     width: 195px;
 }
@@ -88,6 +87,7 @@ body{
     justify-content:flex-start;
     text-align: center;
     flex-direction: column;
+    border: solid white 3px;
 }
 
 #nazwalogin::placeholder{
