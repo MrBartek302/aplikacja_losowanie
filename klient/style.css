@@ -25,7 +25,7 @@ body{
     background-color:#495057;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 20vh 55vh;
+    grid-template-rows: 30vh 45vh;
     grid-template-areas: 
     "goralewo"
     "dollewo";
@@ -42,7 +42,7 @@ body{
 #goralewo{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-direction: column;
     gap: 10px;
     
