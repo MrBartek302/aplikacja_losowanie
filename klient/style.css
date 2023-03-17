@@ -72,13 +72,16 @@ body{
 #calyadmin{
     align-items: center;
     justify-content: center;
-    height: 55px;
+    height: 35px;
     width: 195px;
+    
 }
 
 #sredniadmin{
-    height: 55px;
-    width: 165px;
+    height: 35px;
+    width: 170px;
+    border: solid white 3px;
+    border-radius: 20px;
 }
 
 #divrozciag{
@@ -87,7 +90,6 @@ body{
     justify-content:flex-start;
     text-align: center;
     flex-direction: column;
-    border: solid white 3px;
 }
 
 #nazwalogin::placeholder{
@@ -109,7 +111,7 @@ text-align: center;
 
 #adminbtn{
     height: 35px;
-    width: 115px;
+    width: 170px;
     border: solid white 3px;
     background-color: #cc00ff;
     border-radius: 50px;

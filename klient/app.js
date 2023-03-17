@@ -101,11 +101,11 @@ if(k==0){
     document.getElementById("sredniadmin").style.height = "100px"
 
 
-    setTimeout(function(){
+    //setTimeout(function(){
         div.appendChild(login)
         div.appendChild(haslo)
         div.appendChild(btnwyslijadmin)
-    },270)
+    //},270)
     document.getElementById("sredniadmin").appendChild(div)
 k=1
 }
