@@ -94,12 +94,12 @@ if(k==0){
     login.setAttribute("id", "nazwalogin")
     haslo.setAttribute("id", "haselko")
     haslo.setAttribute("type", "password")
+    login.placeholder ="Nazwa"
+    haslo.placeholder ="Hasło"
 
     document.getElementById("sredniadmin").style.width = "170px"
     document.getElementById("sredniadmin").style.height = "100px"
 
-    login.placeholder ="Nazwa"
-    haslo.placeholder ="Hasło"
 
     setTimeout(function(){
         div.appendChild(login)
@@ -128,7 +128,7 @@ function przekierujadmin(){
      window.location.href = "admin/index.html";
     }
     else{
-        alert("Zły login bądź złe hasło! Spróbuj ponownie.")
+        alert("Zły login bądź złe hasło!! Spróbuj ponownie.")
     }
     
     }
