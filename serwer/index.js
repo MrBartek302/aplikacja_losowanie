@@ -20,6 +20,16 @@ con.connect(function(err){
     else console.log("Połączono z bazą danych")    
 })
 
+const path = require('path');
+
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/appadmn.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'appadmn.js'));
+});
+
 
 app.get("/pobierz_nazwe_kandydata", (req,res)=>{
     //pobiera nam z naszej bazy danych to co stworzyliśmy
@@ -54,6 +64,10 @@ app.get("/add/:nazwauzytkownika/:pesel", (req,res)=>{
         else res.send("Dodano los!!")
     })
 })
+
+app.get('/admin/data', function(req, res) {
+    res.send("Witaj w panelu administracyjnym!");
+  });
 
 app.listen(port, ()=>{
     console.log("Aplikacja działa na porcie: "+port)

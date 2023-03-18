@@ -7,11 +7,58 @@
 </head>
 <body id="body">
 
-    <div id="gra">
-    <?php include 'admin/index.php'; ?>
-    
-    </div>
+    <div id="gra" class="table-container">
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela z kandydatami</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+        th {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nazwa kandydata</th>
+                <th>Pesel Użytkownika</th>
+                <th>Liczba głosów</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jan Kowalski</td>
+                <td>NWM</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Anna Nowak</td>
+                <td>NWM</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Adam Wiśniewski</td>
+                <td>NWM</td>
+                <td>20</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
 
+          
+    </div>
 
 </body>
 </html>
