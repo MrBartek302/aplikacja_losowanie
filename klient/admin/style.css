@@ -14,14 +14,8 @@ body{
 
 }
 
-table {
-    display: table;
-    border-collapse: separate;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 5px;
-    border-color: gray;
-}
-th{
-    color: blue;
+#przycisktest{
+    width: 200px;
+    height: 40px;
+    background-color: rebeccapurple;
 }
