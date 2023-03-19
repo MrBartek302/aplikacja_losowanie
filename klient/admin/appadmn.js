@@ -1,6 +1,43 @@
 var json = []
+var jsonl = []
+var kandydacilosowanie = []
+var k = []
+var d =[]
+
+function wszytsko(){
+if(char!=undefined){
+    
+    char.destroy()
+  }
+  
+  for(var o=0;o<=json.length-1;o++){
+      var votes=0
+      var kandydat = json[o].nazwa_kandydata
+      for(var i=0;i<=jsonl.length-1;i++){
+          if(jsonl[i].nazwa_wylosowanego_kandydata==json[o].nazwa_kandydata){
+              votes++
+          }
+      }
+      kandydacilosowanie.push({kandydat:kandydat,  losy:votes})
+  }
+  for(var i = 0;i<=kandydacilosowanie.length-1;i++){
+      k.push(kandydacilosowanie[i].kandydat)
+      d.push(kandydacilosowanie[i].votes)
+  }
+  console.log(kandydacilosowanie)
+
+}
+
+var kandydacinazwalos = []
+async function pobierzlosowanie(){
+  const data = await fetch(baseurl+"/wynikilos")
+  jsonl = await data.json()
+  console.log(jsonl)
+}
+pobierzlosowanie()
+
 var kandydacinazwa = []
-async function pobierzdane(){
+async function pobierzkandydaci(){
   const data = await fetch(baseurl+"/nazwakandy")
   json = await data.json()
   console.log(json)
@@ -9,7 +46,8 @@ async function pobierzdane(){
   }
   console.log(kandydacinazwa)
 }
-pobierzdane()
+pobierzkandydaci()
+wszytsko()
 function tableCreate() {
   var div = document.getElementById("lewo");
   var tbl = document.createElement('table');
@@ -67,11 +105,11 @@ function tableCreate() {
   
   }
 
-
+var char
 function createChart() {
-  let lables = kandydacinazwa;
+  let lables = k;
 
-  let itemData = [6, 2, 3];
+  let itemData = d;
 
   const data ={
    labels: lables,
@@ -99,7 +137,7 @@ function createChart() {
    }  
   };
 
-  const chart = new Chart(
+   char = new Chart(
    document.getElementById("wykres"),
    config
   );

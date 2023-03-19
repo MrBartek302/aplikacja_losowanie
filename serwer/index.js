@@ -41,6 +41,8 @@ app.get("/wynikilos", (req,res)=>{
   })
 })
 
+
+
 app.get("/tabelalosy", (req,res)=>{
     //pobiera nam z naszej bazy danych to co stworzyliśmy
     const sql = "SELECT * FROM kandydaci"
