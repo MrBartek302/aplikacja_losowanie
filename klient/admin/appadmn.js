@@ -10,7 +10,7 @@ async function start(){
   await pobierzkandydaci()
   await pobierzlosowanie()
   await liczlosy()
-  console.log(d)
+
 
 }
 start()
@@ -29,10 +29,7 @@ async function liczlosy(){
   for(var i = 0;i<=kandydacilosowanie.length-1;i++){
       k.push(kandydacilosowanie[i].kandydat)
       d.push(kandydacilosowanie[i].losy)
-      console.log(kandydacilosowanie[i].losy)
   }
-  console.log(kandydacilosowanie)
- 
 
 }
 
@@ -40,7 +37,6 @@ var kandydacinazwalos = []
 async function pobierzlosowanie(){
   const data = await fetch(baseurl+"/wynikilos")
   jsonl = await data.json()
-  console.log(jsonl)
 }
 
 
@@ -48,11 +44,11 @@ var kandydacinazwa = []
 async function pobierzkandydaci(){
   const data = await fetch(baseurl+"/nazwakandy")
   json = await data.json()
-  console.log(json)
+
   for(var i =0; i<=json.length-1;i++){
     kandydacinazwa.push(json[i].nazwa_kandydata)
   }
-  console.log(kandydacinazwa)
+
 }
 
 
