@@ -20,8 +20,31 @@ body{
     justify-content: center;
 }
 
-table {
-    width: 50%;
+th{
+    border: 3px solid black;
+    width: 90px;
+    height: 45px;
+    background-color: blueviolet;
+  }
+
+  td{
+    border-right: 3px solid black;
+  }
+
+  .td1 {
+    background-color:aquamarine;
+  }
+
+  .td2 {
+    background-color:aqua;
   }
   
+  .td3 {
+    background-color:bisque;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border: 3px solid black;
+  }
   

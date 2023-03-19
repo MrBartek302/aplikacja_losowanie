@@ -16,10 +16,17 @@ function tableCreate() {
       tbdy.appendChild(tr);
       
       // tworzymy wiersze z pustymi komórkami, które zostaną wypełnione danymi z bazy danych
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 20; i++) {
         var tr = document.createElement('tr');
         for (var j = 0; j < data.length; j++) {
           var td = document.createElement('td');
+          if (j === 0) {
+            td.classList.add('td1');
+          } else if (j === 1) {
+            td.classList.add('td2');
+          } else if (j === 2) {
+            td.classList.add('td3');
+          }
           td.appendChild(document.createTextNode(''));
           tr.appendChild(td)
         }
@@ -29,6 +36,6 @@ function tableCreate() {
       tbl.appendChild(tbdy);
       div.appendChild(tbl)
       tbl.style.width = '70%';
-      tbl.style.height = '45%';
+      tbl.style.height = '85%';
     });
 }
