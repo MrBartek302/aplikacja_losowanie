@@ -1,16 +1,26 @@
+var json = []
+var kandydacinazwa = []
+async function pobierzdane(){
+  const data = await fetch(baseurl+"/nazwakandy")
+  json = await data.json()
+  console.log(json)
+  for(var i =0; i<=json.length-1;i++){
+    kandydacinazwa.push(json[i].nazwa_kandydata)
+  }
+  console.log(kandydacinazwa)
+}
+pobierzdane()
 function tableCreate() {
   var div = document.getElementById("lewo");
   var tbl = document.createElement('table');
   var tbdy = document.createElement('tbody');
 
   // pobieramy nazwy kandydatów z serwera i ustawiamy jako nazwy kolumn w tabeli
-  fetch('http://localhost:3000/nazwakandy')
-    .then(response => response.json())
-    .then(data => {
+  
       var tr = document.createElement('tr');
-      for (var i = 0; i < data.length; i++) {
+      for (var i = 0; i < json.length; i++) {
         var th = document.createElement('th');
-        th.textContent = data[i].nazwa_kandydata;
+        th.textContent = json[i].nazwa_kandydata;
         tr.appendChild(th);
       }
       tbdy.appendChild(tr);
@@ -18,7 +28,7 @@ function tableCreate() {
       // tworzymy wiersze z pustymi komórkami, które zostaną wypełnione danymi z bazy danych
       for (var i = 0; i < 20; i++) {
         var tr = document.createElement('tr');
-        for (var j = 0; j < data.length; j++) {
+        for (var j = 0; j < json.length; j++) {
           var td = document.createElement('td');
           if (j == 0) {
             td.classList.add("td1");
@@ -54,12 +64,12 @@ function tableCreate() {
       div.appendChild(tbl)
       tbl.style.width = '70%';
       tbl.style.height = '85%';
-    });
-}
+  
+  }
 
 
 function createChart() {
-  let lables = ['test1', 'test2', 'test3'];
+  let lables = kandydacinazwa;
 
   let itemData = [6, 2, 3];
 
