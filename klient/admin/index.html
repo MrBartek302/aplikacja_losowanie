@@ -19,42 +19,8 @@
         <canvas id="wykres" style="width: 350px; height: 300px;"></canvas>
 
         <script>
-            fetch('/nazwakandywykres')
-              .then(response => response.json())
-              .then(data => {
-                const labels = data.map(kandydat => kandydat.nazwa_kandydata);
-                const itemData = [6, 2, 3]; // tutaj podaj wartości dla każdego kandydata
-          
-                const data ={
-                  labels: labels,
-                  datasets: [{
-                    data: itemData,
-                    backgroundColor: 'rgb(66, 221, 245)'
-                  }]
-                };
-          
-                const config = {
-                  type: 'bar',
-                  data: data,
-                  options:{
-                    plugins: {
-                      legend:{
-                        display: false
-                      },
-                      title: {
-                        display: true, 
-                        text: 'Głosy'
-                      }
-                    }
-                  }  
-                };
-          
-                const chart = new Chart(
-                  document.getElementById("wykres"),
-                  config
-                );
-              });
-          </script>
+            createChart();
+         </script>
     </div>
 
 </body>

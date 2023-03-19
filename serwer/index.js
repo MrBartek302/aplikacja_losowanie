@@ -30,46 +30,53 @@ app.get("/nazwakandy", (req,res)=>{
     })
 })
 
-app.get("/nazwakandywykres", (req,res)=>{
-    const sql = "SELECT nazwa_kandydata FROM kandydaci"; // zmienione zapytanie, pobieramy tylko nazwy kandydatów z tabeli kandydaci
-    con.query(sql, function(err, result, fields){
-        if(err) console.log(err);
-        else {
-            let labels = []; // tworzymy pustą tablicę, do której będziemy wpisywać nazwy kandydatów
-            result.forEach(row => {
-                labels.push(row.nazwa_kandydata); // dodajemy nazwy kandydatów do tablicy
-            });
-            // tworzymy obiekt z danymi dla wykresu
-            const data ={
-                labels: labels,
-                datasets: [{
-                    data: itemData,
-                    backgroundColor: 'rgb(66, 221, 245)'
-                }]
-            };
-            // tworzymy wykres z nowymi danymi
-            const chart = new Chart(
-                document.getElementById("wykres"),
-                {
-                    type: 'bar',
-                    data: data,
-                    options:{
-                        plugins: {
-                            legend:{
-                                display: false
-                            },
-                            title: {
-                                display: true, 
-                                text: 'Głosy'
-                            }
-                        }
-                    }  
-                }
-            );
-            res.send(data); // wysyłamy dane do klienta (opcjonalnie)
-        }
-    })
-})
+app.get("/nazwakandywykres", (req, res) => {
+    const sql = "SELECT * FROM kandydaci"; // pobieramy wszystkie kolumny z tabeli kandydaci
+    con.query(sql, function (err, result, fields) {
+      if (err) console.log(err);
+      else {
+        let labels = []; // tworzymy pustą tablicę, do której będziemy wpisywać nazwy kandydatów
+        let itemData = []; // tworzymy pustą tablicę, do której będziemy wpisywać dane głosów
+  
+        // iterujemy po wynikach zapytania i dodajemy nazwy kandydatów oraz dane głosów do odpowiednich tablic
+        result.forEach((row) => {
+          labels.push(row.nazwa_kandydata); // dodajemy nazwę kandydata do tablicy labels
+          itemData.push(row.glosy); // dodajemy dane głosów do tablicy itemData
+        });
+  
+        // tworzymy obiekt z danymi dla wykresu
+        const data = {
+          labels: labels,
+          datasets: [
+            {
+              data: itemData,
+              backgroundColor: "rgb(66, 221, 245)",
+            },
+          ],
+        };
+  
+        // tworzymy wykres z nowymi danymi
+        const chart = new Chart(document.getElementById("wykres"), {
+          type: "bar",
+          data: data,
+          options: {
+            plugins: {
+              legend: {
+                display: false,
+              },
+              title: {
+                display: true,
+                text: "Głosy",
+              },
+            },
+          },
+        });
+  
+        res.send(data); // wysyłamy dane do klienta (opcjonalnie)
+      }
+    });
+  });
+  
 
 
 app.get("/tabelalosy", (req,res)=>{
@@ -119,4 +126,3 @@ app.get("/add/:nazwauzytkownika/:pesel", (req,res)=>{
 app.listen(port, ()=>{
     console.log("Aplikacja działa na porcie: "+port)
 })
-
