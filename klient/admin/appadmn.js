@@ -29,14 +29,12 @@ async function liczlosy(){
   console.log(kandydacilosowanie)
 }
 
-var kandydacinazwalos = []
 async function pobierzlosowanie(){
   const data = await fetch(baseurl+"/wynikilos")
   jsonl = await data.json()
 }
 
 
-var kandydacinazwa = []
 async function pobierzkandydaci(){
   const data = await fetch(baseurl+"/nazwakandy")
   json = await data.json()
