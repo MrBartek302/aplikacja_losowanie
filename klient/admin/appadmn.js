@@ -3,15 +3,11 @@ var jsonl = []
 var kandydacilosowanie = []
 var k = []
 var d =[]
-
-
 async function start(){
   
   await pobierzkandydaci()
   await pobierzlosowanie()
   await liczlosy()
-
-
 }
 start()
 
@@ -30,7 +26,7 @@ async function liczlosy(){
       k.push(kandydacilosowanie[i].kandydat)
       d.push(kandydacilosowanie[i].losy)
   }
-
+  console.log(kandydacilosowanie)
 }
 
 var kandydacinazwalos = []
@@ -44,11 +40,6 @@ var kandydacinazwa = []
 async function pobierzkandydaci(){
   const data = await fetch(baseurl+"/nazwakandy")
   json = await data.json()
-
-  for(var i =0; i<=json.length-1;i++){
-    kandydacinazwa.push(json[i].nazwa_kandydata)
-  }
-
 }
 
 

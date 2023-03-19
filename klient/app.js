@@ -123,7 +123,7 @@ function przekierujadmin(){
     const name = document.getElementById("nazwalogin").value
     const pass = document.getElementById("haselko").value
     
-    if(name=="Bartek.S" && pass=="Jestem najlepszy"){
+    if(name=="Bartek" && pass=="test"){
      // Przekierowanie użytkownika na inną stronę
      window.location.href = "admin/index.html";
     }
