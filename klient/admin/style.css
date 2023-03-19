@@ -1,21 +1,27 @@
 body{
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 100vh;
-    grid-template-areas: "gra";
-   
+    grid-template-areas: "lewo prawo";
 }
 
-#gra{
-    grid-area: gra;
+#lewo{
+    grid-area: lewo;
+    display: flex;
+    align-items:first baseline;
+    justify-content:left;
+}
+
+
+#prawo{
+    grid-area: prawo;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-#przycisktest{
-    width: 200px;
-    height: 40px;
-    background-color: rebeccapurple;
-}
+table {
+    width: 50%;
+  }
+  
+  

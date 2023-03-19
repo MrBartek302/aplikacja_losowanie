@@ -20,6 +20,16 @@ con.connect(function(err){
     else console.log("Połączono z bazą danych")    
 })
 
+app.get("/nazwakandy", (req,res)=>{
+    //pobiera nam z naszej bazy danych to co stworzyliśmy
+    const sql = "SELECT * FROM kandydaci"
+    //tworzymy zapytanie
+    con.query(sql, function(err, result, fields){
+        if(err) console.log(err)
+        else res.send(result)
+    })
+})
+
 
 app.get("/pobierz_nazwe_kandydata", (req,res)=>{
     //pobiera nam z naszej bazy danych to co stworzyliśmy
