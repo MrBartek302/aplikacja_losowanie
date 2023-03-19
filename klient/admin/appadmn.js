@@ -4,12 +4,18 @@ var kandydacilosowanie = []
 var k = []
 var d =[]
 
-function wszytsko(){
-if(char!=undefined){
-    
-    char.destroy()
-  }
+
+async function start(){
   
+  await pobierzkandydaci()
+  await pobierzlosowanie()
+  await liczlosy()
+  console.log(d)
+
+}
+start()
+
+async function liczlosy(){
   for(var o=0;o<=json.length-1;o++){
       var votes=0
       var kandydat = json[o].nazwa_kandydata
@@ -22,9 +28,11 @@ if(char!=undefined){
   }
   for(var i = 0;i<=kandydacilosowanie.length-1;i++){
       k.push(kandydacilosowanie[i].kandydat)
-      d.push(kandydacilosowanie[i].votes)
+      d.push(kandydacilosowanie[i].losy)
+      console.log(kandydacilosowanie[i].losy)
   }
   console.log(kandydacilosowanie)
+ 
 
 }
 
@@ -34,7 +42,7 @@ async function pobierzlosowanie(){
   jsonl = await data.json()
   console.log(jsonl)
 }
-pobierzlosowanie()
+
 
 var kandydacinazwa = []
 async function pobierzkandydaci(){
@@ -46,8 +54,8 @@ async function pobierzkandydaci(){
   }
   console.log(kandydacinazwa)
 }
-pobierzkandydaci()
-wszytsko()
+
+
 function tableCreate() {
   var div = document.getElementById("lewo");
   var tbl = document.createElement('table');
@@ -105,7 +113,7 @@ function tableCreate() {
   
   }
 
-var char
+
 function createChart() {
   let lables = k;
 
@@ -137,7 +145,7 @@ function createChart() {
    }  
   };
 
-   char = new Chart(
+   const chart = new Chart(
    document.getElementById("wykres"),
    config
   );

@@ -140,7 +140,7 @@ function zapisz(){
     pesel = document.getElementById("pesel").value;
 
     if(pesel.length<11){
-        document.getElementById("napisnadpeselem").innerHTML = "Za mało znaków w Peselu!! Wpisz poprawny Pesel."
+        document.getElementById("napisnadpeselem").innerHTML = "Za mało znaków w Peselu!!"
         document.getElementById("pesel").style.backgroundColor = "red"
     }
 
