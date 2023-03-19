@@ -31,6 +31,13 @@ th{
     border-right: 3px solid black;
   }
 
+  .tdilosc{
+    background-color: rgb(67, 215, 37);
+    border-bottom: 3px solid black;
+    width: 90px;
+    height: 45px;
+  }
+
   .td1 {
     background-color:aquamarine;
   }
@@ -47,4 +54,4 @@ th{
     border-collapse: collapse;
     border: 3px solid black;
   }
-  
+ 
