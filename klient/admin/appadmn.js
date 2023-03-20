@@ -9,6 +9,7 @@ async function start(){
   await pobierzkandydaci()
   await pobierzlosowanie()
   await liczlosy()
+  await losowaniedotabeli()
 }
 start()
 
