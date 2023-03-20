@@ -49,9 +49,9 @@ function tableCreate() {
   // pobieramy nazwy kandydatów z serwera i ustawiamy jako nazwy kolumn w tabeli
   
       var tr = document.createElement('tr');
-      for (var i = 0; i < json.length; i++) {
+      for (var i = 0; i < kandydacilosowanie.length; i++) {
         var th = document.createElement('th');
-        th.textContent = json[i].nazwa_kandydata;
+        th.textContent = kandydacilosowanie[i].kandydat;
         tr.appendChild(th);
       }
       tbdy.appendChild(tr);
@@ -76,15 +76,18 @@ function tableCreate() {
 
       // tworzymy kolejny wiersz z trzema komórkami i klasą tdilosc
       var tr_ilosc = document.createElement('tr');
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < kandydacilosowanie.length; i++) {
         var td = document.createElement('td');
         td.classList.add("tdilosc");
         if (i == 0) {
           td.setAttribute("id", "tdilosc1");
+          td.innerHTML = kandydacilosowanie[i].losy
         } else if (i == 1) {
           td.setAttribute("id", "tdilosc2");
+          td.innerHTML = kandydacilosowanie[i].losy
         } else {
           td.setAttribute("id", "tdilosc3");
+          td.innerHTML = kandydacilosowanie[i].losy
         }
         td.appendChild(document.createTextNode(''));
         tr_ilosc.appendChild(td)
@@ -108,7 +111,14 @@ function createChart() {
    labels: lables,
    datasets: [{
        data: itemData,
-       backgroundColor: 'rgb(66, 221, 245)'
+       backgroundColor: ["rgb(127,255,212)",
+       "rgb(0, 255, 255)",
+       "rgb(255, 228, 196)"],
+       borderColor: ["rgb(40, 157, 140)",
+       "rgb(36, 157, 159",
+       "rgb(196, 150, 93)"],
+       borderWidth: 2.5,
+
    }]
 
   };
