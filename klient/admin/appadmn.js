@@ -1,8 +1,9 @@
 var json = []
 var jsonl = []
-var kandydacilosowanie = []
+var losowanietablica = []
 var k = []
 var d =[]
+var kandydacilosowanie  =[]
 async function start(){
   
   await pobierzkandydaci()
@@ -38,6 +39,14 @@ async function pobierzlosowanie(){
 async function pobierzkandydaci(){
   const data = await fetch(baseurl+"/nazwakandy")
   json = await data.json()
+}
+
+async function losowaniedotabeli(){
+  for(var i=0; i<=kandydacilosowanie.length;i++){
+  const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
+  const jsontab = await data.json()
+  losowanietablica.push({kandydattabela:jsontab})
+  }
 }
 
 
