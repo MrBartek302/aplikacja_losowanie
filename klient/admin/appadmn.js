@@ -5,13 +5,10 @@ var k = []
 var d =[]
 var kandydacilosowanie  =[]
 async function start(){
-  
   await pobierzkandydaci()
   await pobierzlosowanie()
   await liczlosy()
   await losowaniedotabeli()
-  
-  
 }
 start()
 
@@ -31,7 +28,6 @@ async function liczlosy(){
      d.push(kandydacilosowanie[i].losy)
   }
   console.log(kandydacilosowanie)
-  await lider()
 }
 
 async function pobierzlosowanie(){
@@ -54,7 +50,7 @@ async function losowaniedotabeli(){
   }
 }
 
-async function lider(){
+function lider(){
   var leader
   var leaderlosy=0
   for(var i=0; i<=kandydacilosowanie.length-1;i++){
@@ -126,14 +122,11 @@ function tableCreate() {
       div.appendChild(tbl)
       tbl.style.width = '70%';
       tbl.style.height = '65%';
-    
-  
   }
 
 
 function createChart() {
   let lables = k;
-
   let itemData = d;
 
   const data ={
@@ -147,12 +140,8 @@ function createChart() {
        "rgb(36, 157, 159",
        "rgb(196, 150, 93)"],
        borderWidth: 2.5,
-
    }]
-
   };
-
-
   const config = {
    type: 'bar',
    data: data,
