@@ -10,6 +10,8 @@ async function start(){
   await pobierzlosowanie()
   await liczlosy()
   await losowaniedotabeli()
+  
+  
 }
 start()
 
@@ -25,10 +27,11 @@ async function liczlosy(){
       kandydacilosowanie.push({kandydat:kandydat,  losy:votes})
   }
   for(var i = 0;i<=kandydacilosowanie.length-1;i++){
-      k.push(kandydacilosowanie[i].kandydat)
-      d.push(kandydacilosowanie[i].losy)
+     k.push(kandydacilosowanie[i].kandydat)
+     d.push(kandydacilosowanie[i].losy)
   }
   console.log(kandydacilosowanie)
+  await lider()
 }
 
 async function pobierzlosowanie(){
@@ -43,11 +46,24 @@ async function pobierzkandydaci(){
 }
 
 async function losowaniedotabeli(){
-  for(var i=0; i<=kandydacilosowanie.length;i++){
-  const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
+  for(var i=0; i<=json.length;i++){
+    const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
   const jsontab = await data.json()
   losowanietablica.push({kandydattabela:jsontab})
+  console.log(losowanietablica)
   }
+}
+
+async function lider(){
+  var leader
+  var leaderlosy=0
+  for(var i=0; i<=kandydacilosowanie.length-1;i++){
+  if(leaderlosy<kandydacilosowanie[i].losy){
+   leaderlosy = kandydacilosowanie[i].losy
+   leader = kandydacilosowanie[i].kandydat
+  } 
+  }
+  document.getElementById("napislewo").innerHTML = "Lider to: "+leader+" i ma "+leaderlosy+" głosy."
 }
 
 
@@ -67,8 +83,10 @@ function tableCreate() {
       tbdy.appendChild(tr);
 
       // tworzymy wiersze z pustymi komórkami, które zostaną wypełnione danymi z bazy danych
-      for (var i = 0; i < 20; i++) {
+      for (var i = 0; i < 10; i++) {
         var tr = document.createElement('tr');
+        var kandytab = losowanietablica[i]
+         //var peseltab = kandytab.kandydattabela[j].pesel_losujacego
         for (var j = 0; j < json.length; j++) {
           var td = document.createElement('td');
           if (j == 0) {
@@ -107,7 +125,8 @@ function tableCreate() {
       tbl.appendChild(tbdy);
       div.appendChild(tbl)
       tbl.style.width = '70%';
-      tbl.style.height = '85%';
+      tbl.style.height = '65%';
+    
   
   }
 
