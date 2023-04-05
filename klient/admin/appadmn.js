@@ -41,13 +41,30 @@ async function pobierzkandydaci(){
   json = await data.json()
 }
 
+ // async function losowaniedotabeli(){
+ //   for(var i=0; i<=json.length;i++){
+ //     var nk = json[i].nazwa_wylosowanego_kandydata
+ //     var pl = json[i].pesel_losujacego
+ //    const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
+ //    const jsontab = await data.json()
+ //   losowanietablica.push({kandydattabela:jsontab})
+ //   console.log(losowanietablica)
+ //   }
+ // }
+  
 async function losowaniedotabeli(){
-  for(var i=0; i<=json.length;i++){
-   const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
-  const jsontab = await data.json()
-  losowanietablica.push({kandydattabela:jsontab})
-  console.log(losowanietablica)
+  for(var i=0;i<=jsonl.length-1;i++){
+    var nk = jsonl[i].nazwa_wylosowanego_kandydata
+    var pl
+      for(var o=0;o<=json.length-1;o++){
+          if(jsonl[i].nazwa_wylosowanego_kandydata==json[o].nazwa_kandydata){
+              pl = jsonl[i].pesel_losujacego
+          }
+      }
+      losowanietablica.push({kandydattabela:nk,  peseltabela:pl})
+      
   }
+  console.log(losowanietablica)
 }
 
 function lider(){
@@ -67,7 +84,6 @@ function tableCreate() {
   var div = document.getElementById("lewo");
   var tbl = document.createElement('table');
   var tbdy = document.createElement('tbody');
-
   // pobieramy nazwy kandydatów z serwera i ustawiamy jako nazwy kolumn w tabeli
   var tr = document.createElement('tr');
   for (var i = 0; i < kandydacilosowanie.length; i++) {
@@ -79,35 +95,35 @@ function tableCreate() {
 
   for (var i = 0; i < 10; i++) {
     var tr = document.createElement('tr');
-    for (var j = 0; j < kandydacilosowanie.length; j++) {
+    for (var j = 0; j < json.length; j++) {
       var td = document.createElement('td');
       if (j == 0) {
         td.classList.add("td1");
  //Ten if sprawdza, czy tablica losowanietablica istnieje i czy element o indeksie i w tej tablicy istnieje.
-        if (losowanietablica && losowanietablica[i]) {
-          td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
-        }
-        //To oznacza, że tablica losowanietablica istnieje, ale nie zawiera żadnych elementów. Zwróć uwagę, że w konsoli widzisz wartość dla kandydattabela, która jest częścią obiektu znajdującego się w tablicy losowanietablica, ale sama tablica losowanietablica jest pusta
-        else{
-          console.log("nie ma")
-        }
+       // if (losowanietablica && losowanietablica[i]) {
+       //   td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
+       // }
+       // //To oznacza, że tablica losowanietablica istnieje, ale nie zawiera żadnych elementów. Zwróć uwagę, że w konsoli widzisz wartość dla kandydattabela, która jest częścią obiektu znajdującego się w tablicy losowanietablica, ale sama tablica losowanietablica jest pusta
+       // else{
+       //  // console.log("nie ma")
+       // }
 
       } else if (j == 1) {
         td.classList.add("td2");
-        if (losowanietablica && losowanietablica[i]) {
-          td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
-        }
-        else{
-          console.log("nie ma")
-        }
+       // if (losowanietablica && losowanietablica[i]) {
+       //   td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
+       // }
+       // else{
+       //   //console.log("nie ma")
+       // }
       } else {
         td.classList.add("td3");
-        if (losowanietablica && losowanietablica[i]) {
-          td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
-        }
-        else{
-          console.log("nie ma")
-        }
+      //  if (losowanietablica && losowanietablica[i]) {
+      //    td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
+      //  }
+      //  else{
+      //    //console.log("nie ma")
+      //  }
       }
       tr.appendChild(td);
     }
