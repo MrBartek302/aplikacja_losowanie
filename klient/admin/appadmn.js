@@ -43,7 +43,7 @@ async function pobierzkandydaci(){
 
 async function losowaniedotabeli(){
   for(var i=0; i<=json.length;i++){
-    const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
+   const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
   const jsontab = await data.json()
   losowanietablica.push({kandydattabela:jsontab})
   console.log(losowanietablica)
@@ -69,60 +69,77 @@ function tableCreate() {
   var tbdy = document.createElement('tbody');
 
   // pobieramy nazwy kandydatów z serwera i ustawiamy jako nazwy kolumn w tabeli
-  
-      var tr = document.createElement('tr');
-      for (var i = 0; i < kandydacilosowanie.length; i++) {
-        var th = document.createElement('th');
-        th.textContent = kandydacilosowanie[i].kandydat;
-        tr.appendChild(th);
-      }
-      tbdy.appendChild(tr);
-
-      // tworzymy wiersze z pustymi komórkami, które zostaną wypełnione danymi z bazy danych
-      for (var i = 0; i < 10; i++) {
-        var tr = document.createElement('tr');
-        var kandytab = losowanietablica[i]
-         //var peseltab = kandytab.kandydattabela[j].pesel_losujacego
-        for (var j = 0; j < json.length; j++) {
-          var td = document.createElement('td');
-          if (j == 0) {
-            td.classList.add("td1");
-          } else if (j == 1) {
-            td.classList.add("td2");
-          } else {
-            td.classList.add("td3");
-          }
-          td.appendChild(document.createTextNode(''));
-          tr.appendChild(td)
-        }
-        tbdy.appendChild(tr);
-      }
-
-      // tworzymy kolejny wiersz z trzema komórkami i klasą tdilosc
-      var tr_ilosc = document.createElement('tr');
-      for (var i = 0; i < kandydacilosowanie.length; i++) {
-        var td = document.createElement('td');
-        td.classList.add("tdilosc");
-        if (i == 0) {
-          td.setAttribute("id", "tdilosc1");
-          td.innerHTML = kandydacilosowanie[i].losy
-        } else if (i == 1) {
-          td.setAttribute("id", "tdilosc2");
-          td.innerHTML = kandydacilosowanie[i].losy
-        } else {
-          td.setAttribute("id", "tdilosc3");
-          td.innerHTML = kandydacilosowanie[i].losy
-        }
-        td.appendChild(document.createTextNode(''));
-        tr_ilosc.appendChild(td)
-      }
-      tbdy.insertBefore(tr_ilosc, tbdy.children[1]);
-
-      tbl.appendChild(tbdy);
-      div.appendChild(tbl)
-      tbl.style.width = '70%';
-      tbl.style.height = '65%';
+  var tr = document.createElement('tr');
+  for (var i = 0; i < kandydacilosowanie.length; i++) {
+    var th = document.createElement('th');
+    th.textContent = kandydacilosowanie[i].kandydat;
+    tr.appendChild(th);
   }
+  tbdy.appendChild(tr);
+
+  for (var i = 0; i < 10; i++) {
+    var tr = document.createElement('tr');
+    for (var j = 0; j < kandydacilosowanie.length; j++) {
+      var td = document.createElement('td');
+      if (j == 0) {
+        td.classList.add("td1");
+ //Ten if sprawdza, czy tablica losowanietablica istnieje i czy element o indeksie i w tej tablicy istnieje.
+        if (losowanietablica && losowanietablica[i]) {
+          td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
+        }
+        //To oznacza, że tablica losowanietablica istnieje, ale nie zawiera żadnych elementów. Zwróć uwagę, że w konsoli widzisz wartość dla kandydattabela, która jest częścią obiektu znajdującego się w tablicy losowanietablica, ale sama tablica losowanietablica jest pusta
+        else{
+          console.log("nie ma")
+        }
+
+      } else if (j == 1) {
+        td.classList.add("td2");
+        if (losowanietablica && losowanietablica[i]) {
+          td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
+        }
+        else{
+          console.log("nie ma")
+        }
+      } else {
+        td.classList.add("td3");
+        if (losowanietablica && losowanietablica[i]) {
+          td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
+        }
+        else{
+          console.log("nie ma")
+        }
+      }
+      tr.appendChild(td);
+    }
+    tbdy.appendChild(tr);
+  }
+
+  // tworzymy kolejny wiersz z trzema komórkami i klasą tdilosc
+  var tr_ilosc = document.createElement('tr');
+  for (var i = 0; i < kandydacilosowanie.length; i++) {
+    var td = document.createElement('td');
+    td.classList.add("tdilosc");
+    if (i == 0) {
+      td.setAttribute("id", "tdilosc1");
+      td.innerHTML = kandydacilosowanie[i].losy
+    } else if (i == 1) {
+      td.setAttribute("id", "tdilosc2");
+      td.innerHTML = kandydacilosowanie[i].losy
+    } else {
+      td.setAttribute("id", "tdilosc3");
+      td.innerHTML = kandydacilosowanie[i].losy
+    }
+    td.appendChild(document.createTextNode(''));
+    tr_ilosc.appendChild(td)
+  }
+  tbdy.insertBefore(tr_ilosc, tbdy.children[1]);
+
+  tbl.appendChild(tbdy);
+  div.appendChild(tbl);
+  tbl.style.width = '70%';
+  tbl.style.height = '65%';
+}
+
 
 
 function createChart() {
