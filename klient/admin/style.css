@@ -9,8 +9,8 @@ body{
 #lewo{
   grid-area: lewo;
   display: flex;
-  align-items:first baseline;
-  justify-content:left;
+  align-items:baseline;
+  justify-content:center;
   flex-direction: column;
 }
 
@@ -59,4 +59,9 @@ table {
 
 .tdilosc{
   text-align: center;
+}
+
+#napislewo{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: blueviolet;
 }

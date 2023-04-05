@@ -76,7 +76,19 @@ function lider(){
    leader = kandydacilosowanie[i].kandydat
   } 
   }
-  document.getElementById("napislewo").innerHTML = "Lider to: "+leader+" i ma "+leaderlosy+" głosy."
+  if(leaderlosy==0){
+    document.getElementById("napislewo").innerHTML = "Obecnie nie ma lidera."
+  }
+  else if(leaderlosy==2 || leaderlosy==3 || leaderlosy==4 || leaderlosy==22 || leaderlosy==23 || leaderlosy==24)
+  document.getElementById("napislewo").innerHTML = "Liderem jest: "+leader+" i ma "+leaderlosy+" głosy."
+
+  else if(leaderlosy==1){
+    document.getElementById("napislewo").innerHTML = "Liderem jest: "+leader+" i ma "+leaderlosy+" głos."
+  }
+
+  else if(leaderlosy>=5 || leaderlosy <=21 || leaderlosy>=25 || leaderlosy<=30){
+    document.getElementById("napislewo").innerHTML = "Liderem jest: "+leader+" i ma "+leaderlosy+" głosów."
+  }
 }
 
 
