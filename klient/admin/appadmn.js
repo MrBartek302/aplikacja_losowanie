@@ -142,7 +142,7 @@ function tableCreate() {
   tbl.appendChild(tbdy);
   div.appendChild(tbl);
   tbl.style.width = '70%';
-  tbl.style.height = '65%';
+  tbl.style.height = '75%';
 }
 
 

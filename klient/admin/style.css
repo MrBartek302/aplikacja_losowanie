@@ -10,8 +10,9 @@ body{
   grid-area: lewo;
   display: flex;
   align-items:baseline;
-  justify-content:center;
+  justify-content:end;
   flex-direction: column;
+  text-align: center;
 }
 
 
