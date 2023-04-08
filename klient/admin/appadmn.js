@@ -105,37 +105,26 @@ function tableCreate() {
   }
   tbdy.appendChild(tr);
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < losowanietablica.length; i++) {
+    var kandytab = losowanietablica
     var tr = document.createElement('tr');
     for (var j = 0; j < json.length; j++) {
       var td = document.createElement('td');
       if (j == 0) {
         td.classList.add("td1");
- //Ten if sprawdza, czy tablica losowanietablica istnieje i czy element o indeksie i w tej tablicy istnieje.
-       // if (losowanietablica && losowanietablica[i]) {
-       //   td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
-       // }
-       // //To oznacza, że tablica losowanietablica istnieje, ale nie zawiera żadnych elementów. Zwróć uwagę, że w konsoli widzisz wartość dla kandydattabela, która jest częścią obiektu znajdującego się w tablicy losowanietablica, ale sama tablica losowanietablica jest pusta
-       // else{
-       //  // console.log("nie ma")
-       // }
-
+        if (losowanietablica[i].kandydattabela =="Kandydatka Nr.1") {
+          td.innerHTML = losowanietablica[i].peseltabela
+        }
       } else if (j == 1) {
         td.classList.add("td2");
-       // if (losowanietablica && losowanietablica[i]) {
-       //   td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
-       // }
-       // else{
-       //   //console.log("nie ma")
-       // }
+        if (losowanietablica[i].kandydattabela =="Kandydatka Nr.1") {
+          td.innerHTML = losowanietablica[i].peseltabela
+        } 
       } else {
         td.classList.add("td3");
-      //  if (losowanietablica && losowanietablica[i]) {
-      //    td.innerHTML = losowanietablica.kandydattabela[i].pesel_losujacego;
-      //  }
-      //  else{
-      //    //console.log("nie ma")
-      //  }
+        if (losowanietablica[i].kandydattabela =="Kandydatka Nr.1") {
+          td.innerHTML = losowanietablica[i].peseltabela
+        }
       }
       tr.appendChild(td);
     }
