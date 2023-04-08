@@ -41,17 +41,6 @@ async function pobierzkandydaci(){
   json = await data.json()
 }
 
- // async function losowaniedotabeli(){
- //   for(var i=0; i<=json.length;i++){
- //     var nk = json[i].nazwa_wylosowanego_kandydata
- //     var pl = json[i].pesel_losujacego
- //    const data = await fetch(`${baseurl}/losowanietabela/${json[i].nazwa_kandydata}`)
- //    const jsontab = await data.json()
- //   losowanietablica.push({kandydattabela:jsontab})
- //   console.log(losowanietablica)
- //   }
- // }
-  
 async function losowaniedotabeli(){
   for(var i=0;i<=jsonl.length-1;i++){
     var nk = jsonl[i].nazwa_wylosowanego_kandydata
@@ -106,23 +95,22 @@ function tableCreate() {
   tbdy.appendChild(tr);
 
   for (var i = 0; i < losowanietablica.length; i++) {
-    var kandytab = losowanietablica
     var tr = document.createElement('tr');
     for (var j = 0; j < json.length; j++) {
       var td = document.createElement('td');
       if (j == 0) {
         td.classList.add("td1");
-        if (losowanietablica[i].kandydattabela =="Kandydatka Nr.1") {
+        if (losowanietablica[i].kandydattabela == "Kandydatka Nr.1") {
           td.innerHTML = losowanietablica[i].peseltabela
         }
       } else if (j == 1) {
         td.classList.add("td2");
-        if (losowanietablica[i].kandydattabela =="Kandydatka Nr.1") {
+        if (losowanietablica[i].kandydattabela == "Kandydat Nr.2") {
           td.innerHTML = losowanietablica[i].peseltabela
-        } 
+        }
       } else {
         td.classList.add("td3");
-        if (losowanietablica[i].kandydattabela =="Kandydatka Nr.1") {
+        if (losowanietablica[i].kandydattabela == "Kandydat Nr.3") {
           td.innerHTML = losowanietablica[i].peseltabela
         }
       }
