@@ -39,6 +39,7 @@ td{
   justify-content: center;
   text-align: center;
   border-right: 3px solid black;
+  border-bottom: 0.5px solid black;
 }
 
 .tdilosc{
