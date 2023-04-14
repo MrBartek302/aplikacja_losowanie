@@ -30,7 +30,6 @@ app.get("/nazwakandy", (req,res)=>{
     })
 })
 
-
 app.get("/wynikilos", (req,res)=>{
   //pobiera nam z naszej bazy danych to co stworzyliśmy
   const sql = "SELECT * FROM losowanie"
