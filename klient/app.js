@@ -27,13 +27,17 @@ function zagraj(){
     btnadmin.setAttribute("onclick", "wyslijadmin()") 
     document.getElementById("sredniadmin").appendChild(btnadmin)
 
+    const napis1 = document.createElement("h4")
+    napis1.innerHTML = "Wpisz swój Pesel"
+    napis1.setAttribute("id", "napisnadpeselem")
+    document.getElementById("dollewo").appendChild(napis1)
+
     const inputpesel = document.createElement("input")
     inputpesel.setAttribute("id", "pesel")
     inputpesel.setAttribute("maxlength", "11")
     inputpesel.setAttribute("type", "text")
     inputpesel.setAttribute("placeholder", "PESEL")
     inputpesel.setAttribute("onchange", "zapisz()")
-    
     document.getElementById("dollewo").appendChild(inputpesel)
 
     const napis2 = document.createElement("h3")
@@ -137,6 +141,7 @@ function zapisz(){
     pesel = document.getElementById("pesel").value;
 
     if(pesel.length<11){
+        document.getElementById("napisnadpeselem").innerHTML = "Za mało znaków w Peselu!!"
         document.getElementById("pesel").style.backgroundColor = "red"
     }
 
@@ -149,6 +154,8 @@ function zapisz(){
         
         peselpoprawny=document.getElementById("pesel").value
         document.getElementById("napispesel11").innerHTML = "Twój Pesel to: "+peselpoprawny
+        document.getElementById("napisnadpeselem").innerHTML=""
+        document.getElementById("napisnadpeselem").innerHTML="Pesel poprawnie zapisany!"
         document.getElementById("pesel").style.backgroundColor = "green"
        
         wybrane1=1
