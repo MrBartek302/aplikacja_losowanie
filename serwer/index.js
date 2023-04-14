@@ -41,19 +41,6 @@ app.get("/wynikilos", (req,res)=>{
   })
 })
 
-app.get("/losowanietabela/:nazwakandy1", (req,res)=>{
-    const nazwakandy = req.params.nazwakandy1
-    //pobiera nam z naszej bazy danych to co stworzyliśmy
-    const sql = `SELECT * FROM losowanie WHERE nazwa_wylosowanego_kandydata = '${nazwakandy}'`
-    //tworzymy zapytanie
-    con.query(sql, function(err, result, fields){
-        if(err) console.log(err)
-        else res.send(result)
-    })
-  })
-
-
-
 app.get("/tabelalosy", (req,res)=>{
     //pobiera nam z naszej bazy danych to co stworzyliśmy
     const sql = "SELECT * FROM kandydaci"

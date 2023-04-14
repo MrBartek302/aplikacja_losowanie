@@ -120,6 +120,10 @@ text-align: center;
     
 }   
 
+#pesel{
+    text-align: center;
+}
+
 #prawogra{
     grid-area: prawogra;
     background-color:#495057;

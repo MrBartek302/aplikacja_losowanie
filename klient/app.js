@@ -27,16 +27,12 @@ function zagraj(){
     btnadmin.setAttribute("onclick", "wyslijadmin()") 
     document.getElementById("sredniadmin").appendChild(btnadmin)
 
-    const napis1 = document.createElement("h3")
-    napis1.innerHTML = "Wpisz swój Pesel"
-    napis1.setAttribute("id", "napisnadpeselem")
-    document.getElementById("dollewo").appendChild(napis1)
-
     const inputpesel = document.createElement("input")
     inputpesel.setAttribute("id", "pesel")
     inputpesel.setAttribute("maxlength", "11")
     inputpesel.setAttribute("type", "text")
     inputpesel.setAttribute("onchange", "zapisz()")
+    inputpesel.setAttribute("placeholder", "PESEL")
     document.getElementById("dollewo").appendChild(inputpesel)
 
     const napis2 = document.createElement("h3")
