@@ -34,7 +34,6 @@ async function pobierzlosowanie(){
   jsonl = await data.json()
 }
 
-
 async function pobierzkandydaci(){
   const data = await fetch(baseurl+"/nazwakandy")
   json = await data.json()
