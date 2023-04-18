@@ -8,7 +8,6 @@ async function start(){
   await pobierzkandydaci()
   await pobierzlosowanie()
   await liczlosy()
-  await losowaniedotabeli()
 }
 start()
 
@@ -39,21 +38,6 @@ async function pobierzlosowanie(){
 async function pobierzkandydaci(){
   const data = await fetch(baseurl+"/nazwakandy")
   json = await data.json()
-}
-
-async function losowaniedotabeli(){
-  for(var i=0;i<=jsonl.length-1;i++){
-    var nk = jsonl[i].nazwa_wylosowanego_kandydata
-    var pl
-      for(var o=0;o<=json.length-1;o++){
-          if(jsonl[i].nazwa_wylosowanego_kandydata==json[o].nazwa_kandydata){
-              pl = jsonl[i].pesel_losujacego
-          }
-      }
-      losowanietablica.push({kandydattabela:nk,  peseltabela:pl})
-      
-  }
-  console.log(losowanietablica)
 }
 
 function lider(){
@@ -87,31 +71,31 @@ function tableCreate() {
   var tbdy = document.createElement('tbody');
   // pobieramy nazwy kandydatów z serwera i ustawiamy jako nazwy kolumn w tabeli
   var tr = document.createElement('tr');
-  for (var i = 0; i < kandydacilosowanie.length; i++) {
+  for (var i = 0; i < json.length; i++) {
     var th = document.createElement('th');
-    th.textContent = kandydacilosowanie[i].kandydat;
+    th.textContent = json[i].nazwa_kandydata;
     tr.appendChild(th);
   }
   tbdy.appendChild(tr);
 
-  for (var i = 0; i < losowanietablica.length; i++) {
+  for (var i = 0; i < jsonl.length; i++) {
     var tr = document.createElement('tr');
     for (var j = 0; j < json.length; j++) {
       var td = document.createElement('td');
       if (j == 0) {
         td.classList.add("td1");
-        if (losowanietablica[i].kandydattabela == "Kandydatka Nr.1") {
-          td.innerHTML = losowanietablica[i].peseltabela
+        if (jsonl[i].nazwa_wylosowanego_kandydata == "Kandydatka Nr.1") {
+          td.innerHTML = jsonl[i].pesel_losujacego
         }
       } else if (j == 1) {
         td.classList.add("td2");
-        if (losowanietablica[i].kandydattabela == "Kandydat Nr.2") {
-          td.innerHTML = losowanietablica[i].peseltabela
+        if (jsonl[i].nazwa_wylosowanego_kandydata == "Kandydat Nr.2") {
+          td.innerHTML = jsonl[i].pesel_losujacego
         }
       } else {
         td.classList.add("td3");
-        if (losowanietablica[i].kandydattabela == "Kandydat Nr.3") {
-          td.innerHTML = losowanietablica[i].peseltabela
+        if (jsonl[i].nazwa_wylosowanego_kandydata == "Kandydat Nr.3") {
+          td.innerHTML = jsonl[i].pesel_losujacego
         }
       }
       tr.appendChild(td);
