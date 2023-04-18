@@ -83,17 +83,17 @@ function tableCreate() {
       var td = document.createElement('td');
       if (j == 0) {
         td.classList.add("td1");
-        if (jsonl[i].nazwa_wylosowanego_kandydata == "Kandydatka Nr.1") {
+        if (jsonl[i].nazwa_wylosowanego_kandydata == json[j].nazwa_kandydata) {
           td.innerHTML = jsonl[i].pesel_losujacego
         }
       } else if (j == 1) {
         td.classList.add("td2");
-        if (jsonl[i].nazwa_wylosowanego_kandydata == "Kandydat Nr.2") {
+        if (jsonl[i].nazwa_wylosowanego_kandydata == json[j].nazwa_kandydata) {
           td.innerHTML = jsonl[i].pesel_losujacego
         }
       } else {
         td.classList.add("td3");
-        if (jsonl[i].nazwa_wylosowanego_kandydata == "Kandydat Nr.3") {
+        if (jsonl[i].nazwa_wylosowanego_kandydata == json[j].nazwa_kandydata) {
           td.innerHTML = jsonl[i].pesel_losujacego
         }
       }
