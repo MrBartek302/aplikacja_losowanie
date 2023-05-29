@@ -63,7 +63,6 @@ function lider(){
   }
 }
 
-
 function tableCreate() {
   var div = document.getElementById("lewo");
   var tbl = document.createElement('table');
